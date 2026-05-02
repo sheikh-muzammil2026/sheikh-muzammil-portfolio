@@ -9,15 +9,16 @@ const Education = () => {
       <div className="border border-gray-700 rounded-2xl p-8 bg-[#111]">
 
         <h3 className="text-2xl font-semibold mb-2">
-          BSc in Computer Science
+          Complete Web Development Course With Programming Hero BATCH-13 
+          Master of Arts (MA) in Islamic Studies
         </h3>
 
         <p className="text-gray-400 mb-2">
-          XYZ University
+          Al-Haiatul Ulya Lil-Jami'atil Qawmiya, Bangladesh
         </p>
 
         <p className="text-gray-500">
-          2022 - Present
+          Graduated: 2021
         </p>
       </div>
     </section>
