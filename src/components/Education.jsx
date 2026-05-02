@@ -6,21 +6,37 @@ const Education = () => {
         Education
       </h2>
 
-      <div className="border border-gray-700 rounded-2xl p-8 bg-[#111]">
+      <div className="border border-gray-700 rounded-2xl p-8 bg-[#111] space-y-6">
+  
+  {/* First Education Item */}
+  <div>
+    <h3 className="text-2xl font-semibold mb-2 text-orange-500">
+      Complete Web Development Course
+    </h3>
+    <p className="text-lg text-gray-300 font-medium">
+      Programming Hero (Batch-13)
+    </p>
+    <p className="text-gray-500">2025 - Present</p>
+  </div>
 
-        <h3 className="text-2xl font-semibold mb-2">
-          Complete Web Development Course With Programming Hero BATCH-13 
-          Master of Arts (MA) in Islamic Studies
-        </h3>
+  {/* Divider Line */}
+  <div className="border-t border-gray-800"></div>
 
-        <p className="text-gray-400 mb-2">
-          Al-Haiatul Ulya Lil-Jami'atil Qawmiya, Bangladesh
-        </p>
+  {/* Second Education Item */}
+  <div>
+    <h3 className="text-2xl font-semibold mb-2 text-orange-500">
+      Master of Arts (MA) in Islamic Studies
+    </h3>
+    <p className="text-lg text-gray-300 font-medium">
+      Al-Haiatul Ulya Lil-Jami'atil Qawmiya, Bangladesh
+    </p>
+    <p className="text-gray-500">
+      Graduated: 2021
+    </p>
+  </div>
 
-        <p className="text-gray-500">
-          Graduated: 2021
-        </p>
-      </div>
+</div>
+
     </section>
   );
 };
