@@ -2,11 +2,15 @@ const skills = [
   'HTML',
   'CSS',
   'JavaScript',
+  'PHP',
+  'Bash Scripting',
   'React',
   'Next.js',
   'Tailwind CSS',
+  'Express.js',
   'Firebase',
   'MongoDB',
+  'MySQL',
 ];
 
 const Skills = () => {
