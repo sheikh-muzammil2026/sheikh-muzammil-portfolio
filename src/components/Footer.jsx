@@ -9,7 +9,7 @@ const Footer = () => {
       </h2>
 
       <p className="text-gray-400">
-        yourmail@gmail.com
+        discordsstudent@gmail.com
       </p>
 
       <p className="text-gray-500 mt-4">
