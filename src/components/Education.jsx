@@ -16,7 +16,7 @@ const Education = () => {
     <p className="text-lg text-gray-300 font-medium">
       Programming Hero (Batch-13)
     </p>
-    <p className="text-gray-500">2025 - Present</p>
+    <p className="text-gray-500">2026 - Present</p>
   </div>
 
   {/* Divider Line */}
