@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hi 👋, I'm Sheikh Muzammil  
+### Passionate Frontend Developer | Full-Stack Learner | Islamic Studies Scholar
 
-## Getting Started
+I am a dedicated **Frontend Developer** from Bangladesh with a strong foundation in modern web technologies. Currently, I am honing my skills in **Full-Stack Development** while bringing my unique background in Islamic Studies into my professional journey. I love building clean, responsive, and user-centric web applications.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🚀 About Me
+- 🎓 **Academic Background:** Master of Arts (MA) in Islamic Studies (Graduated 2021).
+- 💻 **Currently Learning:** Full-Stack Web Development at **Programming Hero (Batch-13)**.
+- 🛠️ **Current Project:** Working on **Suncart**, a modern web application.
+- 🌍 **Location:** Bangladesh.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🛠️ Tech Stack & Tools
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Frontend:**
+![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## Learn More
+**Backend & Database:**
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-To learn more about Next.js, take a look at the following resources:
+**Tools & Others:**
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📊 Education
+- **Master of Arts (MA) in Islamic Studies** *Al-Haiatul Ulya Lil-Jami'atil Qawmiya, Bangladesh (2021)*
+- **Complete Web Development Course** *Programming Hero, Batch-13 (2025 - Present)*
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 💼 Experience & Projects
+- **Suncart:** A full-stack application featuring authentication (Better Auth) and dynamic data management.
+- **Portfolio Website:** Built with Next.js, focusing on high performance and SEO.
+- Developed 3+ responsive web projects using **Next.js** and **Tailwind CSS**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 📫 Connect with Me
+- **LinkedIn:** https://www.linkedin.com/in/sheikh-muzammil-dev
+- **Email:** discordsstudent@gmail.com
+- **Portfolio:** https://sheikh-muzammil-portfolio.vercel.app/
+
+---
+
+### ⚡ Fun Fact
+I transition between analyzing complex Hadith literature and debugging complex JavaScript code—both require a high level of patience and logic!
