@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Sheikh Muzammil | Professional Frontend Developer Portfolio",
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   description: "Sheikh Muzammil is a dedicated Frontend Developer from Bangladesh specializing in Next.js, React, and MongoDB. Explore my web development projects and technical skills.",
   keywords: [
     "Sheikh Muzammil",
