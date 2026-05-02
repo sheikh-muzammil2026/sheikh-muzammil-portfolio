@@ -8,14 +8,14 @@ const Hero = () => {
 
         <div>
           <h2 className="text-orange-500 text-xl mb-2">
-            Hello Im
+            Hello I'm
           </h2>
 
           <h1 className="text-5xl font-bold mb-4">
             Sheikh Muzammil
           </h1>
           <h3 className="text-2xl text-gray-300 mb-6">
-            Frontend Developer
+            MERN Stack Developer
           </h3>
 
           <p className="text-gray-400 mb-6 leading-7">
@@ -41,15 +41,15 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-5 text-3xl text-orange-500">
-            <a href="https://github.com/yourusername">
+            <a href="https://github.com/sheikh-muzammil2026">
               <FaGithub />
             </a>
 
-            <a href="https://linkedin.com">
+            <a href="https://www.linkedin.com/in/sheikh-muzammil-dev?utm_source=share_via&utm_content=profile&utm_medium=member_android">
               <FaLinkedin />
             </a>
 
-            <a href="https://facebook.com">
+            <a href="https://www.facebook.com/share/1Cg4ewRwb1/">
               <FaFacebook />
             </a>
           </div>
@@ -57,7 +57,7 @@ const Hero = () => {
 
         <div className="flex justify-center">
           <Image
-            src="/profile.png"
+            src="https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png"
             width={350}
             height={350}
             alt="profile"
