@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ReactLenis from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sheikh Muzammil | Professional Frontend Developer Portfolio",
+  title: "Sheikh Muzammil | Professional Full Stack Developer Portfolio",
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -25,11 +26,11 @@ export const metadata = {
     ],
   },
   manifest: '/site.webmanifest',
-  description: "Sheikh Muzammil is a dedicated Frontend Developer from Bangladesh specializing in Next.js, React, and MongoDB. Explore my web development projects and technical skills.",
+  description: "Sheikh Muzammil is a dedicated Full Stack Developer from Bangladesh specializing in Next.js, React, and MongoDB. Explore my web development projects and technical skills.",
   keywords: [
     "Sheikh Muzammil",
     "Sheikh Muzammil Developer",
-    "Frontend Developer in Bangladesh",
+    "Full Stack Developer in Bangladesh",
     "Next.js Developer Bangladesh",
     "React Developer Portfolio",
     "Sheikh Muzammil Web Developer",
@@ -40,7 +41,7 @@ export const metadata = {
   publisher: "Sheikh Muzammil",
   robots: "index, follow", 
   openGraph: {
-    title: "Sheikh Muzammil | Frontend Developer Portfolio",
+    title: "Sheikh Muzammil | Full Stack Developer Portfolio",
     description: "Building modern, responsive, and high-performance web applications with Next.js.",
     url: "https://sheikh-muzammil-portfolio.vercel.app/", 
     siteName: "Sheikh Muzammil Portfolio",
@@ -57,7 +58,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sheikh Muzammil | Frontend Developer",
+    title: "Sheikh Muzammil | Full Stack Developer",
     description: "Specializing in building scalable web applications.",
     images: ["https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png"],
   },
@@ -67,13 +68,20 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col  bg-black text-white ">
-        <Navbar/>
-        {children}
-        <Footer/>
-        </body>
+      <body className="bg-[#030303] text-white min-h-screen w-full overflow-x-hidden antialiased selection:bg-orange-500/30 selection:text-orange-300">
+        <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothTouch: true }}>
+          <div className="flex flex-col min-h-screen w-full overflow-x-hidden relative">
+            <Navbar />
+            {/* শিশুদের (সব সেকশন) ধারণ করার মূল কন্টেইনার */}
+            <main className="flex-grow w-full relative">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ReactLenis>
+      </body>
     </html>
   );
 }

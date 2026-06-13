@@ -1,30 +1,88 @@
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-6 bg-[#111]">
+    <section id="experience" className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden">
+      
+      {/* ব্যাকগ্রাউন্ডে নরম গ্লাস লাইট (আইফোন অ্যাম্বিয়েন্ট আভা) */}
+      <div className="absolute top-1/4 right-1/3 w-[350px] h-[350px] bg-orange-500/[0.03] blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
-
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">
-          Experience
-        </h2>
-
-        <div className="border border-gray-700 rounded-2xl p-8">
-
-          <h3 className="text-2xl font-semibold mb-2">
-            MERN Stack Developer (Self-Projects) | 2026 – Present
-          </h3>
-
-          <p className="text-gray-400 mb-2">
-            Self-Employed
-          </p>
-
-          <p className="text-gray-500 leading-7">
-            
-​Built 3+ responsive projects leveraging Next.js and Tailwind CSS.
-​Experienced in REST API integration and handling dynamic data with MongoDB.
-​Proficient in the entire workflow from UI design to cloud deployment (Vercel/Netlify).
-          </p>
+      <div className="max-w-6xl mx-auto relative z-10">
+        
+        {/* হেডিং - পোর্টফোলিওর সিগনেচার স্টাইল */}
+        <div className="mb-14 space-y-1 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono tracking-[0.2em] text-orange-500 uppercase">
+            <span>●</span> Journey & Track
+          </div>
+          <h2 className="text-4xl font-black text-white tracking-tight">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.2)]">Experience</span>
+          </h2>
         </div>
+
+        {/* আইফোন ফ্রস্টেড গ্লাস কার্ড */}
+        <div className="relative bg-white/[0.01] border border-white/[0.05] backdrop-blur-xl rounded-3xl p-6 md:p-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] hover:border-orange-500/30 transition-all duration-500 group">
+          {/* ইনার গ্লেয়ার রিফ্লেকশন গ্রাডিয়েন্ট */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
+          
+          {/* কার্ডের হেডার ইনফো */}
+          <div className="mb-8 border-b border-white/[0.04] pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-300">
+                Full-Stack Web Developer (Self-Projects)
+              </h3>
+              <p className="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider">
+                Self-Employed / Independent Learning
+              </p>
+            </div>
+            
+            {/* আইফোন বাটন স্টাইল টাইমলাইন ট্যাগ */}
+            <span className="text-xs font-mono bg-orange-500/10 text-orange-400 px-3 py-1 rounded-full border border-orange-500/20 shadow-[0_0_15px_rgba(249,115,22,0.1)] font-semibold">
+              2026 – Present
+            </span>
+          </div>
+
+          {/* এক্সপেরিয়েন্স লিস্ট (মডার্ন ডট এবং হাইলাইটেড টেক্সট) */}
+          <ul className="space-y-5 relative z-10 text-neutral-400 text-sm md:text-base leading-relaxed">
+            
+            <li className="flex items-start gap-3 group/item">
+              <span className="text-orange-500 mt-1.5 text-xs shrink-0 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+              <p>
+                <strong className="text-white font-semibold">Advanced Next.js Architecture:</strong> Developed 3-4 complex full-stack applications using Next.js, implementing smooth user experiences and optimized client-server rendering pipelines.
+              </p>
+            </li>
+
+            <li className="flex items-start gap-3 group/item">
+              <span className="text-orange-500 mt-1.5 text-xs shrink-0 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+              <p>
+                <strong className="text-white font-semibold">Secure Authentication & Database:</strong> Implemented robust security structures with <strong className="text-orange-400 font-medium">JWT (JSON Web Tokens)</strong> and optimized complex data management using high-performance <strong className="text-orange-400 font-medium">MongoDB Aggregation Pipelines</strong>.
+              </p>
+            </li>
+
+            <li className="flex items-start gap-3 group/item">
+              <span className="text-orange-500 mt-1.5 text-xs shrink-0 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+              <p>
+                <strong className="text-white font-semibold">E-Commerce & Payments:</strong> Integrated secure, production-ready, and seamless checkout flows utilizing the <strong className="text-orange-400 font-medium">Stripe Payment Gateway</strong>.
+              </p>
+            </li>
+
+            <li className="flex items-start gap-3 group/item">
+              <span className="text-orange-500 mt-1.5 text-xs shrink-0 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+              <p>
+                <strong className="text-white font-semibold">Vibe Coding & AI Productivity:</strong> Highly proficient in modern <strong className="text-orange-400 font-medium">Vibe Coding</strong> methodologies, leveraging cutting-edge AI engines to accelerate feature development, debugging, and advanced code refactoring by 5x.
+              </p>
+            </li>
+
+            <li className="flex items-start gap-3 group/item">
+              <span className="text-orange-500 mt-1.5 text-xs shrink-0 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+              <p>
+                <strong className="text-white font-semibold">Deployment & Workflows:</strong> Confidently managed agile, full-stack application workflows from initial UI/UX concepts to live production deployment environments via <strong className="text-orange-400 font-medium">Vercel</strong>.
+              </p>
+            </li>
+
+          </ul>
+
+          {/* কার্ডের নিচের গ্লোয়িং অ্যাকসেন্ট বার */}
+          <div className="absolute bottom-0 left-16 right-16 h-[1px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent group-hover:via-orange-500/40 transition-all duration-700" />
+        </div>
+
       </div>
     </section>
   );
