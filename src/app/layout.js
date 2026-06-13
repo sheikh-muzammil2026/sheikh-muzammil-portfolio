@@ -15,7 +15,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sheikh Muzammil | Professional Full Stack Developer Portfolio",
+  
+  metadataBase: new URL("https://sheikh-muzammil-portfolio.vercel.app"),
+
+  title: "Muzammil | Full Stack Web Developer", 
+  description: "Sheikh Muzammil is a full-stack web developer from Bangladesh specializing in Next.js, React, Node.js, and MongoDB. View modern projects and full-stack solutions.",
+  
+  keywords: [
+    "Sheikh Muzammil",
+    "Sheikh Muzammil Developer",
+    "Full Stack Developer Bangladesh",
+    "Next.js Developer Bangladesh",
+    "React Developer Portfolio",
+    "MERN Stack Developer",
+    "Vibe Coding Expert",
+    "Software Engineer Bangladesh"
+  ],
+  
+  authors: [{ name: "Sheikh Muzammil", url: "https://sheikh-muzammil-portfolio.vercel.app" }],
+  creator: "Sheikh Muzammil",
+  publisher: "Sheikh Muzammil",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -25,29 +57,18 @@ export const metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  
   manifest: '/site.webmanifest',
-  description: "Sheikh Muzammil is a dedicated Full Stack Developer from Bangladesh specializing in Next.js, React, and MongoDB. Explore my web development projects and technical skills.",
-  keywords: [
-    "Sheikh Muzammil",
-    "Sheikh Muzammil Developer",
-    "Full Stack Developer in Bangladesh",
-    "Next.js Developer Bangladesh",
-    "React Developer Portfolio",
-    "Sheikh Muzammil Web Developer",
-    "Best Web Developer in Bangladesh"
-  ],
-  authors: [{ name: "Sheikh Muzammil" }],
-  creator: "Sheikh Muzammil",
-  publisher: "Sheikh Muzammil",
-  robots: "index, follow", 
+
+ 
   openGraph: {
-    title: "Sheikh Muzammil | Full Stack Developer Portfolio",
-    description: "Building modern, responsive, and high-performance web applications with Next.js.",
+    title: "Muzammil | Full Stack Web Developer Portfolio",
+    description: "Building modern, secure, and high-performance full-stack web applications using Next.js and MERN Stack.",
     url: "https://sheikh-muzammil-portfolio.vercel.app/", 
     siteName: "Sheikh Muzammil Portfolio",
     images: [
       {
-        url: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png",
+        url: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png", 
         width: 1200,
         height: 630,
         alt: "Sheikh Muzammil Portfolio Preview",
@@ -56,11 +77,14 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+
+  // Twitter/X কার্ড অপ্টিমাইজেশন
   twitter: {
     card: "summary_large_image",
-    title: "Sheikh Muzammil | Full Stack Developer",
-    description: "Specializing in building scalable web applications.",
+    title: "Muzammil | Full Stack Web Developer",
+    description: "Specializing in Next.js, robust architectures, and scalable full-stack web applications.",
     images: ["https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png"],
+    creator: "@your_twitter_handle", // 
   },
 };
 
@@ -74,7 +98,7 @@ export default function RootLayout({ children }) {
         <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothTouch: true }}>
           <div className="flex flex-col min-h-screen w-full overflow-x-hidden relative">
             <Navbar />
-            {/* শিশুদের (সব সেকশন) ধারণ করার মূল কন্টেইনার */}
+           
             <main className="flex-grow w-full relative">
               {children}
             </main>
