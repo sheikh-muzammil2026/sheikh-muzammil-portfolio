@@ -78,8 +78,8 @@ const Hero = () => {
           {/* বাটন্স (আইফোন গ্লাস স্টাইল ও গ্লো) */}
           <div className="flex flex-wrap gap-4 pt-2">
             <a
-              href="/sheikh_muzammil_resume.pdf"
-              download="Sheikh_Muzammil_Resume.pdf"
+              href="/sheikh_Muzammil_resume.doc"
+              download="sheikh_Muzammil_resume.doc"
               className="bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white px-6 py-3.5 rounded-xl font-mono text-xs tracking-wider uppercase font-semibold transition-all duration-300 shadow-[0_0_30px_rgba(249,115,22,0.2)] hover:shadow-[0_0_40px_rgba(249,115,22,0.4)] active:scale-98"
             >
               Download Resume
