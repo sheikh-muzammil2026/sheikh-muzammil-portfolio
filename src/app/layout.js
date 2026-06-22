@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ReactLenis from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,7 +94,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
     >
       <body className="bg-[#030303] text-white min-h-screen w-full overflow-x-hidden antialiased selection:bg-orange-500/30 selection:text-orange-300">
-        <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothTouch: true }}>
+        
           <div className="flex flex-col min-h-screen w-full overflow-x-hidden relative">
             <Navbar />
            
@@ -104,7 +103,7 @@ export default function RootLayout({ children }) {
             </main>
             <Footer />
           </div>
-        </ReactLenis>
+ 
       </body>
     </html>
   );
