@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // স্ক্রোল করলে নেভবারের গ্লাস ইফেক্ট আরও প্রগাঢ় হবে (আইফোন ওএস স্টাইল)
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -30,7 +30,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* মেইন ফ্লোটিং নেভবার কন্টেইনার */}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-5 transition-all duration-300">
         <nav 
           className={`w-full max-w-6xl flex items-center justify-between px-6 py-3.5 rounded-2xl md:rounded-3xl transition-all duration-500 ${
@@ -39,7 +38,7 @@ const Navbar = () => {
               : 'bg-white/[0.01] border border-white/[0.03] backdrop-blur-md'
           }`}
         >
-          {/* লোগো - আপনার ব্র্যান্ড নেম */}
+          
           <div className="flex-1">
             <Link href="/" className="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
                 <span className="text-orange-500 animate-[pulse_1.5s_infinite]">●</span>
@@ -47,7 +46,7 @@ const Navbar = () => {
               </Link>
           </div>
 
-          {/* ডেস্কটপ মেনু (আইফোন মিনিমালিস্ট টেক্সট লিংক) */}
+          
           <div className="hidden md:flex items-center gap-8 font-mono text-xs tracking-wider uppercase">
             {navLinks.map((link, idx) => (
               <Link 
@@ -56,13 +55,13 @@ const Navbar = () => {
                 className="text-neutral-400 hover:text-orange-400 transition-colors duration-300 relative group py-1"
               >
                 {link.name}
-                {/* হোভার করলে নিচের চিকন অ্যাকসেন্ট লাইন */}
+                
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-orange-500 to-amber-500 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
-          {/* মোবাইল মেনু টগল বাটন (হ্যামবার্গার আইকন) */}
+          
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="flex md:hidden flex-col justify-center items-center w-8 h-8 relative z-50 focus:outline-none bg-white/5 border border-white/10 rounded-xl p-1.5"
@@ -75,7 +74,7 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* মোবাইল ড্রয়ার (আইফোন নোটিফিকেশন সেন্টার ব্লার স্টাইল) */}
+      
       <div 
         className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col justify-center items-center ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
