@@ -22,7 +22,6 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden">
       
-      {/* আইফোনের গ্লাস ইফেক্ট ফুটিয়ে তোলার জন্য ব্যাকগ্রাউন্ডের ভেতরের নিয়ন লাইট (কাঁচের নিচ থেকে আলো জ্বলবে) */}
       <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-amber-600/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -39,12 +38,10 @@ const Skills = () => {
           <p className="text-neutral-500 text-sm">Categorized skill sets built on premium architecture</p>
         </div>
 
-        {/* আইফোন স্টাইল গ্লাস গ্রিড */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           
-          {/* ১. ফ্রন্টএন্ড গ্লাস কার্ড */}
           <div className="relative bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl rounded-3xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-orange-500/40 hover:-translate-y-1.5 hover:bg-white/[0.04] group">
-            {/* আইফোন স্টাইল ইনার গ্লেয়ার (হালকা গ্লসি টপ লাইট) */}
+           
             <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
             
             <div className="mb-6 flex justify-between items-center relative z-10">
@@ -60,7 +57,6 @@ const Skills = () => {
               Crafting immersive, high-performance web interfaces with pixel-perfect layouts and dynamic client-side logic.
             </p>
 
-            {/* গ্লাস ট্যাগসমূহ */}
             <div className="flex flex-wrap gap-2.5 relative z-10">
               {frontendSkills.map((skill, idx) => (
                 <span
@@ -73,9 +69,8 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* ২. ব্যাকএন্ড ও সার্ভার গ্লাস কার্ড */}
           <div className="relative bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl rounded-3xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-orange-500/40 hover:-translate-y-1.5 hover:bg-white/[0.04] group">
-            {/* আইফোন স্টাইল ইনার গ্লেয়ার */}
+            
             <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
             
             <div className="mb-6 flex justify-between items-center relative z-10">
@@ -91,7 +86,7 @@ const Skills = () => {
               Engineering secure APIs, optimizing data pipeline performance, and managing robust deployment environments.
             </p>
 
-            {/* গ্লাস ট্যাগসমূহ */}
+            
             <div className="flex flex-wrap gap-2.5 relative z-10">
               {backendSkills.map((skill, idx) => (
                 <span
@@ -104,7 +99,6 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* শেষ হলো ২য় কার্ড */}
         </div>
       </div>
     </section>
