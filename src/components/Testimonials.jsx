@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default function ReviewsTestimonial() {
+export default function Testimonials(){
   // Professional tech-focused dummy client reviews matching your real portfolio metrics
   const reviews = [
     {
