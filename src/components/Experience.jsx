@@ -5,21 +5,21 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: "Full-Stack Developer & Web Administrator",
-      company: "As-Salam Ideal Madrasah",
+      role: "Freelance Full-Stack Developer & Web Administrator",
+      company: "Independent Contracting (Educational & Islamic Institutions)",
       duration: "2025 – Present",
       points: [
         {
-          title: "Enterprise MERN & Next.js Implementation",
-          text: "Engineered and deployed a comprehensive institutional infrastructure utilizing Next.js (MERN Stack) to digitize student enrollments and academic workflows."
+          title: "Institutional Infrastructure Engineering",
+          text: "Successfully engineered, deployed, and currently managing full-stack web applications for multiple clients, including As-Salam Ideal Madrasah (Next.js/MERN), an Online Madrasah Platform, and After School Maktab (Dhaka)."
         },
         {
-          title: "Platform Management & Maintenance",
-          text: "Actively managing and maintaining the live platform, ensuring database integrity, regular backup routines, and seamless system operations."
+          title: "Full Lifecycle Management & Maintenance",
+          text: "Actively providing post-launch technical support, administering backend systems, ensuring database integrity, and handling routine server-side maintenance for all live client assets."
         },
         {
-          title: "Performance & Security Optimization",
-          text: "Optimized server responses and data handling, implementing robust security patches and role-based access controls for administrative safety."
+          title: "Workflow Automation & Optimization",
+          text: "Digitized administrative operations, student enrollment workflows, and academic trackings, tailoring UI/UX structures to meet specific non-profit and institutional requirements."
         }
       ]
     },
