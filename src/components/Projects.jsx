@@ -1,9 +1,19 @@
 import React from 'react';
 
 const Projects = () => {
+  // Production-grade project data architecture
   const projectData = [
     {
       id: 1,
+      title: "Madrasah Management System",
+      subtitle: "Web Infrastructure & Management Platform",
+      description: "A comprehensive enterprise solution built to manage students, enrollment, and administrative workflows for educational institutions. Optimized for complex database queries, role-based access control, and high server uptime.",
+      tech: ["Next.js", "TypeScript", "PHP", "MySQL", "MongoDB"],
+      live: "https://aimhabiganj.vercel.app",
+      repository: "https://github.com/sheikh-muzammil2026/aimhabiganj"
+    },
+    {
+      id: 2,
       title: "StayNest",
       subtitle: "Real Estate & Property Management Platform",
       description: "A full-stack property management platform featuring role-based authentication, interactive property booking, secure Stripe payments integration, user reviews, and a dynamic admin analytics dashboard.",
@@ -13,7 +23,7 @@ const Projects = () => {
       server: "https://github.com/sheikh-muzammil2026/staynest-server"
     },
     {
-      id: 2,
+      id: 3,
       title: "SunCart",
       subtitle: "Full-Stack eCommerce Platform",
       description: "A modern eCommerce platform optimized for speed and conversion. Features production-ready secure authentication, dynamic product filtering, seamless cart operations, and a fully responsive user experience.",
@@ -22,7 +32,7 @@ const Projects = () => {
       repository: "https://github.com/sheikh-muzammil2026/B13-A8-suncart"
     },
     {
-      id: 3,
+      id: 4,
       title: "MediQueue",
       subtitle: "Tutor Booking Platform",
       description: "A structured booking application designed for managing tutoring sessions. Implements advanced search and filtering functionality, session state management, and full CRUD operations with protected API endpoints.",
@@ -38,11 +48,11 @@ const Projects = () => {
       id="projects"
       className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden"
     >
-      {/* Background Decorative Blur Element */}
+      {/* Ambient background blur for modern dark-theme aesthetics */}
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-amber-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Heading */}
+        {/* Section Header Definition */}
         <div className="mb-14 space-y-1 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono tracking-[0.2em] text-orange-500 uppercase">
             <span>●</span> My Creations
@@ -55,18 +65,17 @@ const Projects = () => {
           </h2>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Responsive layout configuration for multi-stack showcases */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projectData.map((project) => (
             <div
               key={project.id}
               className="relative bg-white/[0.01] border border-white/[0.05] backdrop-blur-xl rounded-3xl p-6 flex flex-col justify-between shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] hover:border-orange-500/30 hover:-translate-y-2 transition-all duration-500 group"
             >
-              {/* iPhone Glass Highlight Top Overlay */}
+              {/* Premium glassmorphism overlay line effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
 
               <div>
-                {/* Project Header */}
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-300">
                     {project.title}
@@ -76,12 +85,10 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* Description */}
                 <p className="text-sm text-neutral-400 leading-relaxed mb-6">
                   {project.description}
                 </p>
 
-                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech, idx) => (
                     <span
@@ -94,7 +101,7 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Action Links */}
+              {/* Secure navigation links wrapper */}
               <div className="flex items-center gap-4 border-t border-white/[0.04] pt-4 mt-auto relative z-10">
                 <a
                   href={project.live}
@@ -105,6 +112,7 @@ const Projects = () => {
                   Live Demo ↗
                 </a>
 
+                {/* Conditional repository renderer supporting unified or decoupled architecture */}
                 {project.repository ? (
                   <a
                     href={project.repository}
@@ -136,7 +144,7 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Bottom Subtle Light Glow Line */}
+              {/* Interactive dynamic hover border transition styling */}
               <div className="absolute bottom-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-orange-500/0 to-transparent group-hover:via-orange-500/30 transition-all duration-700" />
             </div>
           ))}
