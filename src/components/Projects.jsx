@@ -5,10 +5,10 @@ const Projects = () => {
   const projectData = [
     {
       id: 1,
-      title: "Madrasah Management System",
+      title: "As-Salam Ideal Madrasah",
       subtitle: "Web Infrastructure & Management Platform",
       description: "A comprehensive enterprise solution built to manage students, enrollment, and administrative workflows for educational institutions. Optimized for complex database queries, role-based access control, and high server uptime.",
-      tech: ["Next.js", "TypeScript", "PHP", "MySQL", "MongoDB"],
+      tech: ["Next.js", "React", "Node.js", "Express.js", "MongoDB"],
       live: "https://aimhabiganj.vercel.app",
       repository: "https://github.com/sheikh-muzammil2026/aimhabiganj"
     },
@@ -65,7 +65,7 @@ const Projects = () => {
           </h2>
         </div>
 
-        {/* Responsive layout configuration for multi-stack showcases */}
+        {/* Responsive layout configuration for project showcases */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projectData.map((project) => (
             <div
