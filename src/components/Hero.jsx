@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 const Hero = () => {
  
-  const words = ['Full-Stack Developer','MERN Stack Developer', 'LAMP Stack Developer'];
+  const words = ['MERN Stack Developer', 'Next.js Developer','Full-Stack Developer'];
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
 
           <p className="text-neutral-400 text-sm md:text-base leading-relaxed max-w-lg">
-            I build highly optimized, secure, and blazing-fast full-stack web applications. Expert in architecting modern UI/UX with Next.js & Tailwind CSS, managing robust APIs via MERN and complete LAMP stacks, and implementing secure infrastructures with Better-Auth.
+            I build responsive, fast, and scalable web applications focused on the <strong className="text-neutral-200">MERN Stack</strong> and <strong className="text-neutral-200">Next.js</strong>. Passionate about crafting modern UI with Tailwind CSS, building clean APIs, and implementing secure web auth.
           </p>
 
           
