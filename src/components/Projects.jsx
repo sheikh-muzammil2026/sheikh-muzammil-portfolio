@@ -1,155 +1,222 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
-  // Production-grade project data architecture
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  // গাইডলাইন অনুযায়ী আপডেট করা প্রজেক্ট ডাটা
   const projectData = [
     {
       id: 1,
-      title: "As-Salam Ideal Madrasah",
+      title: "Aimhabiganj",
       subtitle: "Web Infrastructure & Management Platform",
-      description: "A comprehensive enterprise solution built to manage students, enrollment, and administrative workflows for educational institutions. Optimized for complex database queries, role-based access control, and high server uptime.",
+      image: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      description: "A comprehensive enterprise solution built to manage students, enrollment, and administrative workflows for educational institutions.",
       tech: ["Next.js", "React", "Node.js", "Express.js", "MongoDB"],
       live: "https://aimhabiganj.vercel.app",
-      repository: "https://github.com/sheikh-muzammil2026/aimhabiganj"
+      repository: "https://github.com/sheikh-muzammil2026/aimhabiganj",
+      challenges: "Managing complex role-based authorization rules and optimizing database queries for multi-tier administrative controls.",
+      futurePlans: "Integrating automated SMS alerts for attendance and an online fee payment gateway."
     },
     {
       id: 2,
       title: "StayNest",
       subtitle: "Real Estate & Property Management Platform",
-      description: "A full-stack property management platform featuring role-based authentication, interactive property booking, secure Stripe payments integration, user reviews, and a dynamic admin analytics dashboard.",
+      image: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      description: "A full-stack property management platform featuring role-based authentication, interactive booking, and Stripe integration.",
       tech: ["Next.js", "React", "MongoDB", "Stripe", "Tailwind CSS"],
       live: "https://staynest-client.vercel.app",
       client: "https://github.com/sheikh-muzammil2026/staynest-client",
-      server: "https://github.com/sheikh-muzammil2026/staynest-server"
+      server: "https://github.com/sheikh-muzammil2026/staynest-server",
+      challenges: "Handling real-time availability sync during double-booking edge cases and Stripe webhook response delays.",
+      futurePlans: "Adding dynamic map exploration using Mapbox API and AI-driven price estimation."
     },
     {
       id: 3,
       title: "SunCart",
       subtitle: "Full-Stack eCommerce Platform",
-      description: "A modern eCommerce platform optimized for speed and conversion. Features production-ready secure authentication, dynamic product filtering, seamless cart operations, and a fully responsive user experience.",
+      image: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      description: "A modern eCommerce platform optimized for speed, featuring secure authentication, dynamic product filtering, and smooth cart flow.",
       tech: ["Next.js", "React", "MongoDB", "Better Auth", "Tailwind CSS"],
       live: "https://b13-a8-suncart.vercel.app",
-      repository: "https://github.com/sheikh-muzammil2026/B13-A8-suncart"
+      repository: "https://github.com/sheikh-muzammil2026/B13-A8-suncart",
+      challenges: "Synchronizing local cart state smoothly with server-side database records without blocking UI rendering.",
+      futurePlans: "Adding multi-currency payment options and automated order tracking with email alerts."
     },
     {
       id: 4,
       title: "MediQueue",
       subtitle: "Tutor Booking Platform",
-      description: "A structured booking application designed for managing tutoring sessions. Implements advanced search and filtering functionality, session state management, and full CRUD operations with protected API endpoints.",
+      image: "https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      description: "A structured booking application designed for managing tutoring sessions with search, filter, and full CRUD functionality.",
       tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
       live: "https://mediqueue-client-ochre.vercel.app",
       client: "https://github.com/sheikh-muzammil2026/mediqueue-client",
-      server: "https://github.com/sheikh-muzammil2026/mediqueue-server"
+      server: "https://github.com/sheikh-muzammil2026/mediqueue-server",
+      challenges: "Ensuring accurate session slot reservation and JWT token refresh mechanisms on critical user routes.",
+      futurePlans: "Implementing video call integration for remote tutoring sessions."
     }
   ];
 
   return (
-    <section
-      id="projects"
-      className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden"
-    >
-      {/* Ambient background blur for modern dark-theme aesthetics */}
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-amber-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
-
+    <section id="projects" className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header Definition */}
+        
+        {/* Section Header */}
         <div className="mb-14 space-y-1 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono tracking-[0.2em] text-orange-500 uppercase">
-            <span>●</span> My Creations
+            <span>●</span> Portfolio
           </div>
           <h2 className="text-4xl font-black text-white tracking-tight">
-            Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.2)]">
-              Projects
-            </span>
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Projects</span>
           </h2>
         </div>
 
-        {/* Responsive layout configuration for project showcases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projectData.map((project) => (
             <div
               key={project.id}
-              className="relative bg-white/[0.01] border border-white/[0.05] backdrop-blur-xl rounded-3xl p-6 flex flex-col justify-between shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] hover:border-orange-500/30 hover:-translate-y-2 transition-all duration-500 group"
+              className="bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl rounded-3xl overflow-hidden shadow-xl hover:border-orange-500/30 transition-all duration-300 flex flex-col justify-between group"
             >
-              {/* Premium glassmorphism overlay line effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
+              {/* Project Image */}
+              <div className="relative w-full h-52 bg-neutral-900 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
 
-              <div>
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-300">
+              {/* Card Main Info */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs font-mono text-neutral-500 mt-0.5 tracking-wide">
+                  <p className="text-xs font-mono text-neutral-500 mt-1 mb-3">
                     {project.subtitle}
                   </p>
                 </div>
 
-                <p className="text-sm text-neutral-400 leading-relaxed mb-6">
-                  {project.description}
-                </p>
+                {/* View Details Button (Requirement as per image) */}
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="mt-4 w-full bg-white/[0.05] border border-white/[0.1] hover:bg-orange-500 hover:border-orange-500 hover:text-white text-neutral-200 py-2.5 rounded-xl text-xs font-mono font-semibold tracking-wider transition-all duration-300"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="text-[11px] font-mono bg-white/[0.03] text-neutral-300 px-2.5 py-1 rounded-md border border-white/[0.05]"
-                    >
-                      {tech}
+      {/* Dynamic Details Modal (Shows on 'View Details' click) */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="bg-[#0e0e0e] border border-white/10 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative text-neutral-300 space-y-6"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-5 right-5 text-neutral-400 hover:text-white text-xl font-bold"
+              >
+                ✕
+              </button>
+
+              <div>
+                <span className="text-xs font-mono text-orange-500 uppercase tracking-widest">
+                  Project Details
+                </span>
+                <h3 className="text-3xl font-bold text-white mt-1">
+                  {selectedProject.title}
+                </h3>
+              </div>
+
+              {/* Main Tech Stack */}
+              <div>
+                <h4 className="text-xs font-mono text-neutral-400 uppercase mb-2">Technology Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.tech.map((t, idx) => (
+                    <span key={idx} className="text-xs font-mono bg-orange-500/10 text-orange-400 border border-orange-500/20 px-3 py-1 rounded-md">
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Secure navigation links wrapper */}
-              <div className="flex items-center gap-4 border-t border-white/[0.04] pt-4 mt-auto relative z-10">
+              {/* Brief Description */}
+              <div>
+                <h4 className="text-xs font-mono text-neutral-400 uppercase mb-1">Description</h4>
+                <p className="text-sm leading-relaxed text-neutral-300">{selectedProject.description}</p>
+              </div>
+
+              {/* Challenges Faced */}
+              <div>
+                <h4 className="text-xs font-mono text-neutral-400 uppercase mb-1">Challenges Faced</h4>
+                <p className="text-sm leading-relaxed text-neutral-400">{selectedProject.challenges}</p>
+              </div>
+
+              {/* Potential Improvements & Future Plans */}
+              <div>
+                <h4 className="text-xs font-mono text-neutral-400 uppercase mb-1">Future Plans</h4>
+                <p className="text-sm leading-relaxed text-neutral-400">{selectedProject.futurePlans}</p>
+              </div>
+
+              {/* Action Links */}
+              <div className="flex flex-wrap gap-4 pt-4 border-t border-white/10">
                 <a
-                  href={project.live}
+                  href={selectedProject.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono font-semibold bg-orange-500/10 text-orange-400 px-3 py-1.5 rounded-full border border-orange-500/20 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.05)]"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-xl font-mono text-xs font-semibold"
                 >
-                  Live Demo ↗
+                  Live Project ↗
                 </a>
 
-                {/* Conditional repository renderer supporting unified or decoupled architecture */}
-                {project.repository ? (
+                {selectedProject.repository ? (
                   <a
-                    href={project.repository}
+                    href={selectedProject.repository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-neutral-400 hover:text-white transition-colors duration-300"
+                    className="bg-white/5 border border-white/10 hover:bg-white/10 text-neutral-200 px-5 py-2 rounded-xl font-mono text-xs font-semibold"
                   >
-                    Codebase
+                    GitHub Repository
                   </a>
                 ) : (
                   <>
                     <a
-                      href={project.client}
+                      href={selectedProject.client}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-mono text-neutral-400 hover:text-white transition-colors duration-300"
+                      className="bg-white/5 border border-white/10 hover:bg-white/10 text-neutral-200 px-5 py-2 rounded-xl font-mono text-xs font-semibold"
                     >
-                      Client
+                      Client Repo
                     </a>
                     <a
-                      href={project.server}
+                      href={selectedProject.server}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-mono text-neutral-400 hover:text-white transition-colors duration-300"
+                      className="bg-white/5 border border-white/10 hover:bg-white/10 text-neutral-200 px-5 py-2 rounded-xl font-mono text-xs font-semibold"
                     >
-                      Server
+                      Server Repo
                     </a>
                   </>
                 )}
               </div>
-
-              {/* Interactive dynamic hover border transition styling */}
-              <div className="absolute bottom-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-orange-500/0 to-transparent group-hover:via-orange-500/30 transition-all duration-700" />
-            </div>
-          ))}
-        </div>
-      </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
