@@ -17,14 +17,14 @@ export default function Home() {
       <div className="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-orange-500/10 dark:bg-amber-500/[0.02] blur-[130px] pointer-events-none z-0" />
 
       <div className="relative z-10 flex flex-col">
-        <Hero />
-        <About />
-        <Skills />
-    		<Projects/>
-        <Education />
-        <Experience />
-   			<Testimonials/>
-   		 <WhatsAppButton />
+   <Hero />
+  <About />
+  <Skills />
+  <Projects />
+  <Experience />
+  <Education />
+  <Testimonials />
+  <WhatsAppButton />
      		
       </div>
   
