@@ -118,13 +118,13 @@ const Projects = () => {
       {/* Dynamic Details Modal (Shows on 'View Details' click) */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-[#0e0e0e] border border-white/10 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative text-neutral-300 space-y-6"
-            >
+  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+  animate={{ opacity: 1, scale: 1, y: 0 }}
+  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+  className="bg-[#0e0e0e] border border-white/10 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto relative text-neutral-300 space-y-6 my-auto shadow-2xl"
+>
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
