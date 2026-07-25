@@ -24,7 +24,7 @@ const Projects = () => {
       id: 2,
       title: "StayNest",
       subtitle: "Real Estate & Property Management Platform",
-      image: "StayNest.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/StayNest.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
       description: "A full-stack property management platform featuring role-based authentication, interactive booking, and Stripe integration.",
       tech: ["Next.js", "React", "MongoDB", "Stripe", "Tailwind CSS"],
       live: "https://staynest-client.vercel.app",
@@ -37,7 +37,7 @@ const Projects = () => {
       id: 3,
       title: "SunCart",
       subtitle: "Full-Stack eCommerce Platform",
-      image: "suncart.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/suncart.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
       description: "A modern eCommerce platform optimized for speed, featuring secure authentication, dynamic product filtering, and smooth cart flow.",
       tech: ["Next.js", "React", "MongoDB", "Better Auth", "Tailwind CSS"],
       live: "https://b13-a8-suncart.vercel.app",
@@ -49,7 +49,7 @@ const Projects = () => {
       id: 4,
       title: "MediQueue",
       subtitle: "Tutor Booking Platform",
-      image: "mediqeue.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/mediqeue.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
       description: "A structured booking application designed for managing tutoring sessions with search, filter, and full CRUD functionality.",
       tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
       live: "https://mediqueue-client-ochre.vercel.app",
