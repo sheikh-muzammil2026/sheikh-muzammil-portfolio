@@ -64,7 +64,7 @@ const Navbar = () => {
           
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="flex md:hidden flex-col justify-center items-center w-8 h-8 relative z-50 focus:outline-none bg-white/5 border border-white/10 rounded-xl p-1.5"
+            className="flex md:hidden flex-col justify-center items-center w-8 h-8 relative z-40 focus:outline-none bg-white/5 border border-white/10 rounded-xl p-1.5"
             aria-label="Toggle Menu"
           >
             <span className={`h-[2px] w-5 bg-neutral-200 rounded-full transition-transform duration-300 core-layer ${isOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
