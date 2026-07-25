@@ -6,13 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // গাইডলাইন অনুযায়ী আপডেট করা প্রজেক্ট ডাটা
   const projectData = [
     {
       id: 1,
       title: "Aimhabiganj",
       subtitle: "Web Infrastructure & Management Platform",
-      image: "/aimhome.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/aimhome.jpg",
       description: "A comprehensive enterprise solution built to manage students, enrollment, and administrative workflows for educational institutions.",
       tech: ["Next.js", "React", "Node.js", "Express.js", "MongoDB"],
       live: "https://aimhabiganj.vercel.app",
@@ -24,7 +23,7 @@ const Projects = () => {
       id: 2,
       title: "StayNest",
       subtitle: "Real Estate & Property Management Platform",
-      image: "/StayNest.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/StayNest.jpg",
       description: "A full-stack property management platform featuring role-based authentication, interactive booking, and Stripe integration.",
       tech: ["Next.js", "React", "MongoDB", "Stripe", "Tailwind CSS"],
       live: "https://staynest-client.vercel.app",
@@ -37,7 +36,7 @@ const Projects = () => {
       id: 3,
       title: "SunCart",
       subtitle: "Full-Stack eCommerce Platform",
-      image: "/suncart.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/suncart.jpg",
       description: "A modern eCommerce platform optimized for speed, featuring secure authentication, dynamic product filtering, and smooth cart flow.",
       tech: ["Next.js", "React", "MongoDB", "Better Auth", "Tailwind CSS"],
       live: "https://b13-a8-suncart.vercel.app",
@@ -49,7 +48,7 @@ const Projects = () => {
       id: 4,
       title: "MediQueue",
       subtitle: "Tutor Booking Platform",
-      image: "/mediqeue.jpg", // আপনার প্রজেক্টের স্ক্রিনশট লিঙ্ক বসাবেন
+      image: "/mediqeue.jpg",
       description: "A structured booking application designed for managing tutoring sessions with search, filter, and full CRUD functionality.",
       tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
       live: "https://mediqueue-client-ochre.vercel.app",
@@ -102,7 +101,6 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* View Details Button (Requirement as per image) */}
                 <button
                   onClick={() => setSelectedProject(project)}
                   className="mt-4 w-full bg-white/[0.05] border border-white/[0.1] hover:bg-orange-500 hover:border-orange-500 hover:text-white text-neutral-200 py-2.5 rounded-xl text-xs font-mono font-semibold tracking-wider transition-all duration-300"
@@ -115,20 +113,26 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Dynamic Details Modal (Shows on 'View Details' click) */}
+      {/* Dynamic Details Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
+          <div 
+            onClick={() => setSelectedProject(null)} // ব্যাকড্রপে ক্লিক করলেও মোডাল বন্ধ হবে
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-sm overflow-y-auto"
+          >
             <motion.div
-  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-  animate={{ opacity: 1, scale: 1, y: 0 }}
-  exit={{ opacity: 0, scale: 0.9, y: 20 }}
-  className="bg-[#0e0e0e] border border-white/10 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto relative text-neutral-300 space-y-6 my-auto shadow-2xl"
->
-              {/* Close Button */}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              onClick={(e) => e.stopPropagation()} // ভেতরে ক্লিক করলে যাতে বন্ধ না হয়
+              className="bg-[#0e0e0e] border border-white/10 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto relative text-neutral-300 space-y-6 my-auto shadow-2xl"
+            >
+              {/* Fix: Close Button (z-50 and explicit click target added) */}
               <button
+                type="button"
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-5 right-5 text-neutral-400 hover:text-white text-xl font-bold"
+                className="absolute top-4 right-4 z-50 text-neutral-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full w-9 h-9 flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Close Modal"
               >
                 ✕
               </button>
@@ -137,7 +141,7 @@ const Projects = () => {
                 <span className="text-xs font-mono text-orange-500 uppercase tracking-widest">
                   Project Details
                 </span>
-                <h3 className="text-3xl font-bold text-white mt-1">
+                <h3 className="text-3xl font-bold text-white mt-1 pr-8">
                   {selectedProject.title}
                 </h3>
               </div>
