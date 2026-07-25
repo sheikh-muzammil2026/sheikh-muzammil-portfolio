@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+html, body {
+  overscroll-behavior: none; 
+  -webkit-overflow-scrolling: touch;
+}
+
+
+section, div {
+  transform: translateZ(0);
+  will-change: transform;
+}
