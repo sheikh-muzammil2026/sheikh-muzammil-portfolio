@@ -1,229 +1,216 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import React, { useState, useEffect } from "react";
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiJavascript, 
+  SiTailwindcss, 
+  SiNodedotjs, 
+  SiExpress, 
+  SiMongodb, 
+  SiGithub, 
+  SiVercel,
+  SiPostman
+} from "react-icons/si";
+import { ShieldCheck } from "lucide-react";
+
+const skillsData = [
+  { name: "Next.js", category: "Framework", level: "92% Proficiency", exp: "2+ years", projects: "10+", icon: SiNextdotjs, color: "text-white", desc: "Full-stack SSR, App Router, dynamic routes, and performance optimization." },
+  { name: "React.js", category: "Frontend", level: "90% Proficiency", exp: "2+ years", projects: "12+", icon: SiReact, color: "text-cyan-400", desc: "Building component-driven interactive interfaces, custom hooks, and modern state flow." },
+  { name: "JavaScript", category: "Language", level: "92% Proficiency", exp: "3+ years", projects: "15+", icon: SiJavascript, color: "text-yellow-400", desc: "Core language mastery, ES6+ features, asynchronous patterns, and API integrations." },
+  { name: "Tailwind CSS", category: "Styling", level: "95% Proficiency", exp: "2+ years", projects: "15+", icon: SiTailwindcss, color: "text-teal-400", desc: "Crafting modern, responsive, fluid layouts, glassmorphism, and custom animations." },
+  { name: "Node.js", category: "Backend", level: "85% Proficiency", exp: "2+ years", projects: "10+", icon: SiNodedotjs, color: "text-green-500", desc: "Engineering scalable backend environments, event-driven servers, and micro-services." },
+  { name: "Express.js", category: "Backend", level: "88% Proficiency", exp: "2+ years", projects: "10+", icon: SiExpress, color: "text-slate-300", desc: "Designing robust RESTful APIs, middleware pipelines, and error handling architectures." },
+  { name: "MongoDB", category: "Database", level: "85% Proficiency", exp: "2+ years", projects: "8+", icon: SiMongodb, color: "text-emerald-400", desc: "Schema modeling, NoSQL operations, and high-performance MongoDB Aggregation Pipelines." },
+  { name: "Better-Auth", category: "Security", level: "88% Proficiency", exp: "1+ year", projects: "6+", icon: ShieldCheck, color: "text-purple-400", desc: "Implementing modern authentication, secure session tokens, JWT, and role-based permissions." },
+  { name: "Git & GitHub", category: "Tools", level: "90% Proficiency", exp: "2+ years", projects: "15+", icon: SiGithub, color: "text-slate-200", desc: "Version control workflows, multi-branching, collaboration, and repository governance." },
+  { name: "Vercel", category: "Deployment", level: "90% Proficiency", exp: "2+ years", projects: "12+", icon: SiVercel, color: "text-white", desc: "Continuous deployment pipelines, serverless functions, and production environment hosting." },
+  { name: "Postman", category: "Testing", level: "85% Proficiency", exp: "2+ years", projects: "10+", icon: SiPostman, color: "text-orange-400", desc: "Comprehensive API endpoint testing, debugging payloads, and documentation workflows." }
+];
 
 const Skills = () => {
-  const frontendSkills = [
-    { name: 'Next.js', primary: true },
-    { name: 'React.js', primary: true },
-    { name: 'JavaScript (ES6+)', primary: true },
-    { name: 'Tailwind CSS', primary: true },
-    { name: 'HTML5 & CSS3', primary: false },
-    { name: 'REST APIs', primary: false },
-  ];
+  const [viewMode, setViewMode] = useState("grid");
+  const [selectedSkill, setSelectedSkill] = useState(skillsData[0]);
+  const [rotation, setRotation] = useState(0);
 
-  const backendSkills = [
-    { name: 'Node.js', primary: true },
-    { name: 'Express.js', primary: true },
-    { name: 'MongoDB', primary: true },
-    { name: 'Better-Auth', primary: true },
-    { name: 'PHP & MySQL', primary: false },
-    { name: 'Apache Server', primary: false },
-    { name: 'Linux (Ubuntu)', primary: false },
-  ];
-
-  // Prisma বাদ দিয়ে শুধুমাত্র আপনার ব্যবহৃত টুলসগুলো যুক্ত করা হয়েছে
-  const toolSkills = [
-    { name: 'Git & GitHub', primary: true },
-    { name: 'VS Code', primary: true },
-    { name: 'MongoDB Compass', primary: true },
-    { name: 'Vercel', primary: true },
-    { name: 'Render / Netlify', primary: false },
-    { name: 'Postman', primary: false },
-    { name: 'Figma (UI/UX)', primary: false },
-  ];
-
-  // Framer Motion Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3 },
-    },
-  };
+  useEffect(() => {
+    if (viewMode === "solar" || viewMode === "cloud") {
+      const interval = setInterval(() => {
+        setRotation((prev) => (prev + 0.5) % 360);
+      }, 50);
+      return () => clearInterval(interval);
+    }
+  }, [viewMode]);
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden">
-      {/* Background Glowing Spheres */}
-      <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-orange-500/5 blur-[90px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-amber-600/5 blur-[90px] rounded-full pointer-events-none animate-pulse" />
+    <section id="skills" className="py-24 px-6 md:px-12 relative z-10 max-w-7xl mx-auto overflow-hidden">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+          Technical <span className="text-purple-400">Expertise</span>
+        </h2>
+        <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto mb-6">
+          Explore my core technologies, development stack, and architectural proficiency.
+        </p>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 space-y-1 text-center md:text-left"
-        >
-          <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono tracking-[0.2em] text-orange-500 uppercase">
-            <span className="animate-ping text-[8px]">●</span> Architecture
-          </div>
-          <h2 className="text-4xl font-bold text-white tracking-tight">
-            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Technical Focus</span>
-          </h2>
-          <p className="text-neutral-500 text-sm">Tech stack, backend systems, and developer tools I use daily</p>
-        </motion.div>
-
-        {/* 3 Skill Cards Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        >
-          
-          {/* 01 // Frontend Card */}
-          <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-white/[0.02] border border-white/[0.06] backdrop-blur-md rounded-2xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-colors duration-300 hover:border-orange-500/50 hover:bg-white/[0.04] group overflow-hidden flex flex-col justify-between"
+        {/* View Toggle Buttons */}
+        <div className="flex flex-wrap justify-center items-center gap-3">
+          <button
+            onClick={() => setViewMode("grid")}
+            className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+              viewMode === "grid"
+                ? "bg-purple-500 text-slate-950 shadow-lg shadow-purple-500/20"
+                : "bg-slate-900/80 border border-slate-800 text-slate-300 hover:border-purple-500/50"
+            }`}
           >
-            <div className="absolute -inset-px bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div>
-              <div className="mb-4 flex justify-between items-center relative z-10">
-                <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-200">
-                  Frontend Dev
-                </h3>
-                <span className="text-[10px] font-mono bg-white/5 text-neutral-400 px-2 py-1 rounded-md border border-white/5">
-                  01 // UI
-                </span>
-              </div>
-              
-              <p className="text-neutral-400 text-sm leading-relaxed mb-6 relative z-10">
-                Crafting responsive, high-performance web interfaces with modern React ecosystems and Next.js.
-              </p>
-            </div>
-
-            <motion.div className="flex flex-wrap gap-2 relative z-10">
-              {frontendSkills.map((skill, idx) => (
-                <motion.span
-                  key={idx}
-                  variants={badgeVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono tracking-wide cursor-default border transition-colors duration-200 ${
-                    skill.primary
-                      ? 'bg-orange-500/10 border-orange-500/30 text-orange-300 font-semibold hover:bg-orange-500 hover:text-white hover:shadow-[0_0_15px_rgba(249,115,22,0.4)]'
-                      : 'bg-white/[0.04] border-white/[0.08] text-neutral-300 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {skill.name}
-                </motion.span>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* 02 // Backend Card */}
-          <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-white/[0.02] border border-white/[0.06] backdrop-blur-md rounded-2xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-colors duration-300 hover:border-orange-500/50 hover:bg-white/[0.04] group overflow-hidden flex flex-col justify-between"
+            Auto Marquee View
+          </button>
+          <button
+            onClick={() => setViewMode("cloud")}
+            className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+              viewMode === "cloud"
+                ? "bg-purple-500 text-slate-950 shadow-lg shadow-purple-500/20"
+                : "bg-slate-900/80 border border-slate-800 text-slate-300 hover:border-purple-500/50"
+            }`}
           >
-            <div className="absolute -inset-px bg-gradient-to-r from-orange-500/0 via-amber-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div>
-              <div className="mb-4 flex justify-between items-center relative z-10">
-                <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-200">
-                  Backend & Systems
-                </h3>
-                <span className="text-[10px] font-mono bg-white/5 text-neutral-400 px-2 py-1 rounded-md border border-white/5">
-                  02 // SYS
-                </span>
-              </div>
-              
-              <p className="text-neutral-400 text-sm leading-relaxed mb-6 relative z-10">
-                Building RESTful APIs, handling database architectures, and secure auth systems.
-              </p>
-            </div>
-
-            <motion.div className="flex flex-wrap gap-2 relative z-10">
-              {backendSkills.map((skill, idx) => (
-                <motion.span
-                  key={idx}
-                  variants={badgeVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono tracking-wide cursor-default border transition-colors duration-200 ${
-                    skill.primary
-                      ? 'bg-orange-500/10 border-orange-500/30 text-orange-300 font-semibold hover:bg-orange-500 hover:text-white hover:shadow-[0_0_15px_rgba(249,115,22,0.4)]'
-                      : 'bg-white/[0.04] border-white/[0.08] text-neutral-300 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {skill.name}
-                </motion.span>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* 03 // Tools & Workflow Card */}
-          <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-white/[0.02] border border-white/[0.06] backdrop-blur-md rounded-2xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-colors duration-300 hover:border-orange-500/50 hover:bg-white/[0.04] group overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-1"
+            Cloud View
+          </button>
+          <button
+            onClick={() => setViewMode("solar")}
+            className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+              viewMode === "solar"
+                ? "bg-purple-500 text-slate-950 shadow-lg shadow-purple-500/20"
+                : "bg-slate-900/80 border border-slate-800 text-slate-300 hover:border-purple-500/50"
+            }`}
           >
-            <div className="absolute -inset-px bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div>
-              <div className="mb-4 flex justify-between items-center relative z-10">
-                <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-orange-400 transition-colors duration-200">
-                  Tools & Workflow
-                </h3>
-                <span className="text-[10px] font-mono bg-white/5 text-neutral-400 px-2 py-1 rounded-md border border-white/5">
-                  03 // DEV
-                </span>
-              </div>
-              
-              <p className="text-neutral-400 text-sm leading-relaxed mb-6 relative z-10">
-                Leveraging industry-standard tools for version control, database management, deployment, and testing.
-              </p>
-            </div>
-
-            <motion.div className="flex flex-wrap gap-2 relative z-10">
-              {toolSkills.map((skill, idx) => (
-                <motion.span
-                  key={idx}
-                  variants={badgeVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono tracking-wide cursor-default border transition-colors duration-200 ${
-                    skill.primary
-                      ? 'bg-orange-500/10 border-orange-500/30 text-orange-300 font-semibold hover:bg-orange-500 hover:text-white hover:shadow-[0_0_15px_rgba(249,115,22,0.4)]'
-                      : 'bg-white/[0.04] border-white/[0.08] text-neutral-300 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {skill.name}
-                </motion.span>
-              ))}
-            </motion.div>
-          </motion.div>
-
-        </motion.div>
+            Solar View
+          </button>
+        </div>
       </div>
+
+      {/* Grid / Auto Marquee View */}
+      {viewMode === "grid" && (
+        <div className="relative w-full overflow-hidden py-4">
+          <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">
+            {[...skillsData, ...skillsData].map((skill, index) => {
+              const IconComponent = skill.icon;
+              return (
+                <div
+                  key={index}
+                  className="w-72 group p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 backdrop-blur-md transition-all duration-300 cursor-pointer flex-shrink-0"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/50 group-hover:border-purple-500/50 transition-colors">
+                      <IconComponent size={24} className={skill.color} />
+                    </div>
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full bg-slate-800 text-purple-400">
+                      {skill.category}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{skill.name}</h3>
+                  <p className="text-slate-400 text-xs leading-relaxed">{skill.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Cloud View */}
+      {viewMode === "cloud" && (
+        <div className="py-16 px-4 rounded-3xl bg-slate-900/40 border border-slate-800 backdrop-blur-xl flex flex-col lg:flex-row items-center justify-around gap-10 min-h-[450px] relative overflow-hidden">
+          <div className="relative w-[300px] h-[300px] flex items-center justify-center">
+            {skillsData.map((skill, index) => {
+              const angle = ((index / skillsData.length) * 360 + rotation) * (Math.PI / 180);
+              const radius = 120;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              const IconComp = skill.icon;
+              const isSelected = selectedSkill.name === skill.name;
+
+              return (
+                <div
+                  key={index}
+                  className="absolute cursor-pointer transition-transform duration-100 hover:scale-110"
+                  style={{ transform: `translate(${x}px, ${y}px)` }}
+                  onMouseEnter={() => setSelectedSkill(skill)}
+                  onClick={() => setSelectedSkill(skill)}
+                >
+                  <div className={`p-3 rounded-2xl border backdrop-blur-md flex items-center justify-center transition-all duration-300 ${isSelected ? "bg-purple-500 text-slate-950 border-white scale-125 shadow-lg shadow-purple-500/50" : "bg-slate-950 border-slate-700 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/30"}`}>
+                    <IconComp size={22} className={isSelected ? "text-slate-950" : skill.color} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="w-full lg:w-96 p-6 rounded-2xl bg-slate-950/90 border border-purple-500/30 shadow-2xl backdrop-blur-xl">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <selectedSkill.icon size={22} className={selectedSkill.color} />
+                {selectedSkill.name}
+              </h4>
+              <span className="text-xs font-semibold text-purple-400">{selectedSkill.level}</span>
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed mb-4">{selectedSkill.desc}</p>
+            <div className="flex justify-between border-t border-slate-800 pt-3 text-xs text-slate-400">
+              <span>Experience: <strong className="text-white">{selectedSkill.exp}</strong></span>
+              <span>Projects: <strong className="text-white">{selectedSkill.projects}</strong></span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Solar View */}
+      {viewMode === "solar" && (
+        <div className="py-20 px-4 rounded-3xl bg-slate-900/30 border border-slate-800/80 backdrop-blur-xl flex flex-col lg:flex-row items-center justify-around gap-10 min-h-[520px] relative overflow-hidden">
+          <div className="absolute w-[240px] h-[240px] rounded-full border border-slate-800 pointer-events-none"></div>
+          <div className="absolute w-[360px] h-[360px] rounded-full border border-purple-500/20 pointer-events-none"></div>
+
+          <div className="absolute z-10 p-6 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-300 shadow-2xl shadow-purple-500/30 flex items-center justify-center w-24 h-24 text-center backdrop-blur-xl">
+            <span className="text-xs font-bold uppercase tracking-wider text-white">Skills</span>
+          </div>
+
+          <div className="relative w-[380px] h-[380px] flex items-center justify-center">
+            {skillsData.map((skill, index) => {
+              const angle = ((index / skillsData.length) * 360 + rotation * 0.8) * (Math.PI / 180);
+              const radius = index % 2 === 0 ? 130 : 180;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              const IconComp = skill.icon;
+              const isSelected = selectedSkill.name === skill.name;
+
+              return (
+                <div
+                  key={index}
+                  className="absolute cursor-pointer transition-transform duration-100 hover:scale-110"
+                  style={{ transform: `translate(${x}px, ${y}px)` }}
+                  onMouseEnter={() => setSelectedSkill(skill)}
+                  onClick={() => setSelectedSkill(skill)}
+                >
+                  <div className={`p-3 rounded-2xl border backdrop-blur-md flex items-center justify-center transition-all duration-300 ${isSelected ? "bg-purple-500 text-slate-950 border-white scale-125 shadow-xl shadow-purple-500/50" : "bg-slate-950 border-slate-700 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/30"}`}>
+                    <IconComp size={22} className={isSelected ? "text-slate-950" : skill.color} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="w-full lg:w-96 p-6 rounded-2xl bg-slate-950/90 border border-purple-500/30 shadow-2xl backdrop-blur-xl relative z-20">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <selectedSkill.icon size={22} className={selectedSkill.color} />
+                {selectedSkill.name}
+              </h4>
+              <span className="text-xs font-semibold text-purple-400">{selectedSkill.level}</span>
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed mb-4">{selectedSkill.desc}</p>
+            <div className="flex justify-between border-t border-slate-800 pt-3 text-xs text-slate-400">
+              <span>Experience: <strong className="text-white">{selectedSkill.exp}</strong></span>
+              <span>Projects: <strong className="text-white">{selectedSkill.projects}</strong></span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

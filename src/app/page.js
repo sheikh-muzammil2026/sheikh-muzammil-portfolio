@@ -1,33 +1,39 @@
-import About from "@/components/About";
-import Education from "@/components/Education";
-import Experience from "@/components/Experience";
+import CustomCursor from "@/components/CustomCursor";
+import ParticleBackground from "@/components/ParticleBackground";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import AboutMe from "@/components/AboutMe";
+import Services from "@/components/Services";
+import TechMarquee from "@/components/TechMarquee";
 import Skills from "@/components/Skills";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
+import BlogSection from "@/components/BlogSection";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen mx-auto overflow-x-hidden relative bg-slate-50 dark:bg-[#030014] text-gray-900 dark:text-gray-100 transition-colors duration-500">
-      
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-orange-500/10 dark:bg-orange-500/[0.03] blur-[120px] pointer-events-none z-0" />
-      <div className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/10 dark:bg-purple-500/[0.02] blur-[150px] pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-orange-500/10 dark:bg-amber-500/[0.02] blur-[130px] pointer-events-none z-0" />
-
-      <div className="relative z-10 flex flex-col">
-   <Hero />
-  <About />
-  <Skills />
-  <Projects />
-  <Experience />
-  <Education />
-  <Testimonials />
-  <WhatsAppButton />
-     		
-      </div>
-  
+    <main className="bg-slate-950 min-h-screen text-white relative selection:bg-purple-500 selection:text-black overflow-x-hidden">
+      <CustomCursor />
+      <ParticleBackground />
+      <Navbar />
+      <Hero />
+      <AboutMe />
+      <Services />
+      <TechMarquee />
+      <Skills />
+      <ExperienceTimeline />
+      <Projects />
+      <Testimonials />
+      <BlogSection />
+      <ContactForm />
+      <Footer />
+      <WhatsAppButton />
+      <ScrollToTop />
     </main>
   );
 }

@@ -1,14 +1,35 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
-
-html, body {
-  overscroll-behavior: none; 
-  -webkit-overflow-scrolling: touch;
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
 
-section, div {
-  transform: translateZ(0);
-  will-change: transform;
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
 }

@@ -1,7 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,11 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  
   metadataBase: new URL("https://sheikh-muzammil-portfolio.vercel.app"),
 
-  title: "Muzammil | Full Stack Web Developer", 
-  description: "Sheikh Muzammil is a full-stack web developer from Bangladesh specializing in Next.js, React, Node.js, and MongoDB. View modern projects and full-stack solutions.",
+  title: "Sheikh Muzammil — Full-Stack & Next.js Developer", 
+  description: "Sheikh Muzammil is a full-stack web developer from Bangladesh specializing in Next.js, React, Node.js, Express, and MongoDB. Showcasing modern full-stack architectures and enterprise platforms.",
   
   keywords: [
     "Sheikh Muzammil",
@@ -27,7 +24,6 @@ export const metadata = {
     "Next.js Developer Bangladesh",
     "React Developer Portfolio",
     "MERN Stack Developer",
-    "Vibe Coding Expert",
     "Software Engineer Bangladesh"
   ],
   
@@ -35,21 +31,9 @@ export const metadata = {
   creator: "Sheikh Muzammil",
   publisher: "Sheikh Muzammil",
 
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico' },
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
@@ -59,10 +43,9 @@ export const metadata = {
   
   manifest: '/site.webmanifest',
 
- 
   openGraph: {
-    title: "Muzammil | Full Stack Web Developer Portfolio",
-    description: "Building modern, secure, and high-performance full-stack web applications using Next.js and MERN Stack.",
+    title: "Sheikh Muzammil | Full-Stack & Next.js Developer",
+    description: "Building modern, secure, and high-performance full-stack web applications using Next.js and the MERN Stack.",
     url: "https://sheikh-muzammil-portfolio.vercel.app/", 
     siteName: "Sheikh Muzammil Portfolio",
     images: [
@@ -77,13 +60,11 @@ export const metadata = {
     type: "website",
   },
 
-  // Twitter/X কার্ড অপ্টিমাইজেশন
   twitter: {
     card: "summary_large_image",
-    title: "Muzammil | Full Stack Web Developer",
+    title: "Sheikh Muzammil | Full-Stack Web Developer",
     description: "Specializing in Next.js, robust architectures, and scalable full-stack web applications.",
     images: ["https://i.ibb.co.com/2Y5p4Qhv/1777688598569.png"],
-    creator: "@your_twitter_handle", // 
   },
 };
 
@@ -91,19 +72,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
-      <body className="bg-[#030303] text-white min-h-screen w-full overflow-x-hidden antialiased selection:bg-orange-500/30 selection:text-orange-300">
-        
-          <div className="flex flex-col min-h-screen w-full overflow-x-hidden relative">
-            <Navbar />
-           
-            <main className="flex-grow w-full relative">
-              {children}
-            </main>
-            <Footer />
-          </div>
- 
+      <body className="bg-slate-950 text-slate-100 min-h-screen w-full overflow-x-hidden antialiased selection:bg-cyan-500 selection:text-black">
+        {children}
       </body>
     </html>
   );

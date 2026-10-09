@@ -1,126 +1,130 @@
 "use client";
+import React, { useState, useEffect, useRef } from "react";
+import { Quote, ExternalLink } from "lucide-react";
 
-import React from 'react';
+const reviews = [
+  {
+    name: "Dr. Fazlul Karim",
+    role: "Director, Educational Infrastructure Guild",
+    project: "Institutional Workflows",
+    link: "#",
+    comment: "Sheikh Muzammil transformed our manual institutional workflows into a seamless Next.js ecosystem. His expertise in building robust, production-grade MERN architectures and maintaining high uptime is commendable."
+  },
+  {
+    name: "Sarah Jenkins",
+    role: "Founder, StayNest Ventures",
+    project: "StayNest Property Platform",
+    link: "https://staynest-client.vercel.app",
+    comment: "Exceeded all expectations with our full-stack property management application. The implementation of role-based authorization and smooth dashboard tracking workflows greatly accelerated our scaling."
+  },
+  {
+    name: "Ahmed Tariq",
+    role: "Chief Administrator, As-Salam Institute",
+    project: "As-Salam Digital System",
+    link: "#",
+    comment: "Muzammil doesn't just write code; he engineers long-term web solutions. His outstanding management of our custom platform ensures zero downtime and top-tier database integrity."
+  },
+  {
+    name: "Marcus Vance",
+    role: "Product Owner, SunCart Systems",
+    project: "SunCart E-Commerce",
+    link: "https://b13-a8-suncart.vercel.app",
+    comment: "A highly reliable full-stack developer. Delivered an incredibly responsive e-commerce experience using modern state management practices. His integration of secure checkout logic was flawless."
+  }
+];
 
-export default function Testimonials(){
-  // Professional tech-focused dummy client reviews matching your real portfolio metrics
-  const reviews = [
-    {
-      name: "Dr. Fazlul Karim",
-      role: "Director, Educational Infrastructure Guild",
-      rating: "⭐⭐⭐⭐⭐",
-      comment: "Sheikh Muzammil transformed our manual institutional workflows into a seamless Next.js ecosystem. His expertise in building robust, production-grade MERN architectures and maintaining high uptime is commendable."
-    },
-    {
-      name: "Sarah Jenkins",
-      role: "Founder, StayNest Ventures",
-      rating: "⭐⭐⭐⭐⭐",
-      comment: "Exceeded all expectations with our full-stack property management application. The implementation of role-based authorization and smooth dashboard tracking workflows greatly accelerated our scaling."
-    },
-    {
-      name: "Ahmed Tariq",
-      role: "Chief Administrator, As-Salam Institute",
-      rating: "⭐⭐⭐⭐⭐",
-      comment: "Muzammil doesn't just write code; he engineers long-term web solutions. His outstanding management of our custom platform ensures zero downtime and top-tier database integrity."
-    },
-    {
-      name: "Marcus Vance",
-      role: "Product Owner, SunCart Systems",
-      rating: "⭐⭐⭐⭐⭐",
-      comment: "A highly reliable full-stack developer. Delivered an incredibly responsive e-commerce experience using modern state management practices. His integration of secure checkout logic was flawless."
+export default function Testimonials() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  ];
 
-  // Duplicating array elements to sustain an uninterrupted scrolling loop sequence
-  const duplicatedReviews = [...reviews, ...reviews];
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section 
-      id="testimonials" 
-      className="py-24 px-6 bg-[#030303] text-[#ededed] relative overflow-hidden"
-    >
-      {/* Ambient decorative blur background aligned with your core layout */}
-      <div className="absolute top-1/4 left-1/3 w-[350px] h-[350px] bg-orange-500/[0.02] blur-[140px] rounded-full pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto relative z-10 mb-14">
-        {/* Section Header Definition */}
-        <div className="mb-14 space-y-1 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2 text-xs font-mono tracking-[0.2em] text-orange-500 uppercase">
-            <span>●</span> Endorsements
-          </div>
-          <h2 className="text-4xl font-black text-white tracking-tight">
-            Client{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.2)]">
-              Testimonials
-            </span>
-          </h2>
-        </div>
+    <section ref={sectionRef} id="testimonials" className="py-24 px-4 md:px-10 max-w-7xl mx-auto overflow-hidden">
+      <div className="text-center mb-16 space-y-3">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          Client & Project <span className="text-cyan-400">Reviews</span>
+        </h2>
+        <p className="text-slate-400 text-sm max-w-xl mx-auto">
+          Feedback and delivery highlights from production platforms and client ventures I've engineered.
+        </p>
       </div>
 
-      {/* Marquee Animation Workspace Zone */}
-      <div className="relative w-full flex overflow-x-hidden pt-4 pb-8 group">
-        
-        {/* Isolated CSS Animation Injection */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            @keyframes marqueeLeft {
-              0% { transform: translateX(0%); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-custom-marquee {
-              display: flex;
-              gap: 2rem;
-              animation: marqueeLeft 30s linear infinite;
-            }
-            .group:hover .animate-custom-marquee {
-              animation-play-state: paused;
-            }
-          `
-        }} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {reviews.map((review, index) => (
+          <div 
+            key={index}
+            className={`p-8 rounded-3xl backdrop-blur-xl relative overflow-hidden transition-all duration-700 transform ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+            style={{
+              transitionDelay: `${index * 150}ms`,
+              background: "linear-gradient(to bottom right, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4))",
+              border: "2px solid transparent",
+              backgroundImage: "linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), linear-gradient(to right, #06b6d4, #a855f7, #ec4899)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+              boxShadow: "0 0 35px rgba(6, 182, 212, 0.12), inset 0 0 20px rgba(168, 85, 247, 0.08)"
+            }}
+          >
+            {/* Background Glow Accent */}
+            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
-        <div className="animate-custom-marquee flex whitespace-nowrap">
-          {duplicatedReviews.map((review, index) => (
-            <div
-              key={index}
-              className="w-[300px] sm:w-[420px] relative bg-white/[0.01] border border-white/[0.05] backdrop-blur-xl rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] hover:border-orange-500/30 transition-all duration-500 whitespace-normal flex-shrink-0"
-            >
-              {/* Premium glassmorphism top sheen effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent rounded-3xl pointer-events-none" />
-
-              {/* Decorative quotation mark asset */}
-              <div className="absolute right-6 top-4 text-6xl text-orange-500/[0.05] pointer-events-none select-none font-serif">
-                “
-              </div>
-
-              <div>
-                <div className="text-xs mb-3 select-none tracking-wider">
-                  {review.rating}
-                </div>
-                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-6 font-medium">
-                  &ldquo;{review.comment}&rdquo;
-                </p>
-              </div>
-
-              {/* Secure Profile Panel Meta Section */}
-              <div className="flex items-center gap-4 border-t border-white/[0.04] pt-4 mt-auto relative z-10">
-                <div className="w-10 h-10 rounded-full bg-orange-500/10 text-orange-400 font-mono font-bold flex items-center justify-center text-sm border border-orange-500/20 flex-shrink-0">
-                  {review.name[0]}
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-xs sm:text-sm font-bold text-white tracking-tight truncate">
-                    {review.name}
-                  </h4>
-                  <p className="text-[11px] font-mono text-neutral-500 mt-0.5 truncate">
-                    {review.role}
-                  </p>
-                </div>
-              </div>
-
-              {/* Interactive dynamic hover border indicator line */}
-              <div className="absolute bottom-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-orange-500/0 to-transparent group-hover:via-orange-500/30 transition-all duration-700" />
+            <Quote className="absolute top-6 right-6 w-10 h-10 text-cyan-400/20" />
+            
+            <div className="mb-4">
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                {review.project}
+              </span>
             </div>
-          ))}
-        </div>
+
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-8 relative z-10">
+              &ldquo;{review.comment}&rdquo;
+            </p>
+
+            <div className="flex items-center justify-between pt-4 border-t border-slate-800/80 relative z-10">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm shadow-md">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-base tracking-wide">{review.name}</h4>
+                  <span className="text-cyan-400 text-xs font-medium">{review.role}</span>
+                </div>
+              </div>
+
+              {review.link !== "#" && (
+                <a 
+                  href={review.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-xl bg-slate-950 text-slate-300 hover:text-cyan-400 hover:bg-slate-900 border border-slate-800 transition-all flex items-center gap-1 text-xs"
+                >
+                  <span>Visit</span> <ExternalLink size={12} />
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
