@@ -45,7 +45,6 @@ const roles = [
   "Full-Stack Developer",
   "Next.js & React Specialist",
   "MERN Stack Developer",
-  "Backend & Systems Engineer",
 ];
 
 export default function Hero() {
